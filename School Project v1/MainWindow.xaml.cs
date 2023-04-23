@@ -19,6 +19,7 @@ using System.Timers;
 using System.Windows.Threading;
 using System.Threading;
 using System.IO;
+using System.Reflection.Emit;
 
 namespace School_Project_v1
 {
@@ -29,10 +30,16 @@ namespace School_Project_v1
         private Storyboard Enter1StoryBoard;
         private DispatcherTimer T;
         private DispatcherTimer Pg2C;
+        private DispatcherTimer Ctimer;
+        private int currentImageIndex = 0;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            Ctimer = new DispatcherTimer();
+            Ctimer.Tick += CTimer_Tick;
+            Ctimer.Interval = TimeSpan.FromMilliseconds(2000); // set the desired interval for image cycling
 
             T = new DispatcherTimer();
             T.Interval = TimeSpan.FromMilliseconds(2000);
@@ -135,41 +142,30 @@ namespace School_Project_v1
                     this.Pg3.Visibility = Visibility.Collapsed;
                     this.Pg4.Visibility= Visibility.Visible;
                     Ani.Fade(Pg4, 0, 1, 2000);
+                    Ctimer.Start();
                     RotateImage(Alex, 10, 1200);
-                    CycleImagesNew(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\", 2000);
-
+ 
                     RotateImage(Amaya, 10, 1200);
-                    CycleImagesNew(Amaya, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Amaya\", 2000);
-
+ 
                     RotateImage(Colton, 10, 1200);
-                    CycleImagesNew(Colton, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Colton\", 2000);
-
+ 
                     RotateImage(Finn, 10, 1200);
-                    CycleImagesNew(Finn, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Finn\", 2000);
-
+ 
                     RotateImage(Giuliana, 10, 1200);
-                    CycleImagesNew(Giuliana, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Giuliana\", 2000);
 
                     RotateImage(Grant, 10, 1200);
-                    CycleImagesNew(Grant, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Grant\", 2000);
-
+ 
                     RotateImage(Jasmin, 10, 1200);
-                    CycleImagesNew(Jasmin, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Jasmin\", 2000);
 
                     RotateImage(Miles, 10, 1200);
-                    CycleImagesNew(Miles, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Miles\", 2000);
 
                     RotateImage(Noah, 10, 1200);
-                    CycleImagesNew(Noah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Noah\", 2000);
 
                     RotateImage(Olivia, 10, 1200);
-                    CycleImagesNew(Olivia, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Olivia\", 2000);
 
                     RotateImage(Sariah, 10, 1200);
-                    CycleImagesNew(Sariah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Sariah\", 2000);
 
                     RotateImage(Tristian, 10, 1200);
-                    CycleImagesNew(Tristian, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Tristian\", 2000);
 
                 }
             }
@@ -204,6 +200,34 @@ namespace School_Project_v1
             this.Enter1.Visibility= Visibility.Visible;
             Enter1StoryBoard.Begin(this);
             T.Stop();
+        }
+
+        private void CTimer_Tick(object sender, EventArgs e)
+        {
+            CycleImagesNew(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
+
+            CycleImagesNew(Amaya, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Amaya\");
+
+            CycleImagesNew(Colton, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Colton\");
+
+            CycleImagesNew(Finn, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Finn\");
+
+            CycleImagesNew(Giuliana, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Giuliana\");
+
+            CycleImagesNew(Grant, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Grant\");
+
+            CycleImagesNew(Jasmin, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Jasmin\");
+
+            CycleImagesNew(Miles, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Miles\");
+
+            CycleImagesNew(Noah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Noah\");
+
+            CycleImagesNew(Olivia, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Olivia\");
+
+            CycleImagesNew(Sariah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Sariah\");
+
+            CycleImagesNew(Tristian, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Tristian\");
+
         }
         public class HotKey
         {
@@ -245,44 +269,25 @@ namespace School_Project_v1
             // Start the timer
             timer.Start();
         }
-        public void CycleImagesNew(Image image, string folderPath, int intervalMilliseconds)
+        public void CycleImagesNew(Image image, string folderPath)
         {
             // Get a list of all image files in the specified folder
             var imageFiles = Directory.GetFiles(folderPath, "*.png");
 
-            // Create a counter variable to keep track of the current image index
-            int currentImageIndex = 0;
-
-            // Create a DispatcherTimer object with the specified interval
-            var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(intervalMilliseconds);
-
-            // Subscribe to the Tick event of the timer and update the Image source
-            timer.Tick += (sender, e) =>
-            {
                 // Check if imageFiles array is not empty before attempting to access an element at the specified index
                 if (imageFiles.Length > 0)
                 {
+                    if (currentImageIndex < imageFiles.Length)
+                    {
                     // Set the source of the Image control to the next image file
                     image.Source = new BitmapImage(new Uri(imageFiles[currentImageIndex]));
 
-                    if (currentImageIndex == 0)
-                    {
-                        image.Width = 300;
-                        image.Height = 250;
-                    }
-                    else
-                    {
-                        image.Width = 255;
-                        image.Height = 160;
-                    }
                     // Increment the current image index and wrap around to the beginning of the array if it exceeds the array size
                     currentImageIndex = (currentImageIndex + 1) % imageFiles.Length;
+                    }
                 }
-            };
 
             // Start the timer ree e e e e
-            timer.Start();
         }
 
     }

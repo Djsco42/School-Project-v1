@@ -198,7 +198,7 @@
                 </Image.RenderTransform>
             </Image>
 
-            <!--<Label Content="Hello" Margin="20,20,20,20" Foreground="White"/>-->
+            <Label x:Name="helloA" Visibility="Collapsed" Content="Hello" Margin="20,20,20,20" Foreground="White" FontSize="25" FontWeight="Bold"/>
 
         </Grid>
 
