@@ -281,7 +281,7 @@ namespace School_Project_v1
                 }
             };
 
-            // Start the timer ree e e
+            // Start the timer ree e e e
             timer.Start();
         }
 
