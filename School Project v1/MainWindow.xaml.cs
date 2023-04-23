@@ -31,7 +31,11 @@ namespace School_Project_v1
         private DispatcherTimer T;
         private DispatcherTimer Pg2C;
         private DispatcherTimer Ctimer;
-        private int currentImageIndex = 0;
+        private DispatcherTimer Rtimer;
+
+        private Dictionary<Image, string> imageFolders = new Dictionary<Image, string>();
+        private Dictionary<Image, int> currentImageIndexes = new Dictionary<Image, int>();
+
 
         public MainWindow()
         {
@@ -39,7 +43,7 @@ namespace School_Project_v1
 
             Ctimer = new DispatcherTimer();
             Ctimer.Tick += CTimer_Tick;
-            Ctimer.Interval = TimeSpan.FromMilliseconds(2000); // set the desired interval for image cycling
+            Ctimer.Interval = TimeSpan.FromMilliseconds(2000);
 
             T = new DispatcherTimer();
             T.Interval = TimeSpan.FromMilliseconds(2000);
@@ -78,6 +82,45 @@ namespace School_Project_v1
             b.Items.Add(Esc);
             b.Items.Add(Z);
             b.Items.Add(H);
+
+            // Add image folders and current image indexes for each Image control
+            imageFolders.Add(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
+            currentImageIndexes.Add(Alex, 0);
+
+            imageFolders.Add(Amaya, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Amaya\");
+            currentImageIndexes.Add(Amaya, 0);
+
+            imageFolders.Add(Colton, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Colton\");
+            currentImageIndexes.Add(Colton, 0);
+
+            imageFolders.Add(Finn, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Finn\");
+            currentImageIndexes.Add(Finn, 0);
+
+            imageFolders.Add(Giuliana, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Giuliana\");
+            currentImageIndexes.Add(Giuliana, 0);
+
+            imageFolders.Add(Grant, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Grant\");
+            currentImageIndexes.Add(Grant, 0);
+
+            imageFolders.Add(Jasmin, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Jasmin\");
+            currentImageIndexes.Add(Jasmin, 0);
+
+            imageFolders.Add(Miles, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Miles\");
+            currentImageIndexes.Add(Miles, 0);
+
+            imageFolders.Add(Noah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Noah\");
+            currentImageIndexes.Add(Noah, 0);
+
+            imageFolders.Add(Olivia, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Olivia\");
+            currentImageIndexes.Add(Olivia, 0);
+
+            imageFolders.Add(Sariah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Sariah\");
+            currentImageIndexes.Add(Sariah, 0);
+
+            imageFolders.Add(Tristian, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Tristian\");
+            currentImageIndexes.Add(Tristian, 0);
+
+
 
         }
 
@@ -141,31 +184,20 @@ namespace School_Project_v1
                     this.Enter1.Visibility = Visibility.Collapsed;
                     this.Pg3.Visibility = Visibility.Collapsed;
                     this.Pg4.Visibility= Visibility.Visible;
-                    Ani.Fade(Pg4, 0, 1, 2000);
+                    Ani.Fade(Pg4, 0, 1, 1000);
                     Ctimer.Start();
-                    RotateImage(Alex, 10, 1200);
- 
-                    RotateImage(Amaya, 10, 1200);
- 
-                    RotateImage(Colton, 10, 1200);
- 
-                    RotateImage(Finn, 10, 1200);
- 
-                    RotateImage(Giuliana, 10, 1200);
-
-                    RotateImage(Grant, 10, 1200);
- 
-                    RotateImage(Jasmin, 10, 1200);
-
-                    RotateImage(Miles, 10, 1200);
-
-                    RotateImage(Noah, 10, 1200);
-
-                    RotateImage(Olivia, 10, 1200);
-
-                    RotateImage(Sariah, 10, 1200);
-
-                    RotateImage(Tristian, 10, 1200);
+                    RotateImage(Alex, 10, 1000); 
+                    RotateImage(Amaya, 10, 1000); 
+                    RotateImage(Colton, 10, 1000); 
+                    RotateImage(Finn, 10, 1000); 
+                    RotateImage(Giuliana, 10, 1000);
+                    RotateImage(Grant, 10, 1000); 
+                    RotateImage(Jasmin, 10, 1000);
+                    RotateImage(Miles, 10, 1000);
+                    RotateImage(Noah, 10, 1000);
+                    RotateImage(Olivia, 10, 1000);
+                    RotateImage(Sariah, 10, 1000);
+                    RotateImage(Tristian, 10, 1000);
 
                 }
             }
@@ -204,30 +236,28 @@ namespace School_Project_v1
 
         private void CTimer_Tick(object sender, EventArgs e)
         {
-            CycleImagesNew(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
+            foreach (var imageFolder in imageFolders)
+            {
+                Image image = imageFolder.Key;
+                string folderPath = imageFolder.Value;
+                int currentImageIndex = currentImageIndexes[image];
 
-            CycleImagesNew(Amaya, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Amaya\");
+                // Get a list of all image files in the specified folder
+                var imageFiles = Directory.GetFiles(folderPath, "*.png");
 
-            CycleImagesNew(Colton, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Colton\");
+                // Check if imageFiles array is not empty before attempting to access an element at the specified index
+                if (imageFiles.Length > 0)
+                {
+                    if (currentImageIndex < imageFiles.Length)
+                    {
+                        // Set the source of the Image control to the next image file
+                        image.Source = new BitmapImage(new Uri(imageFiles[currentImageIndex]));
 
-            CycleImagesNew(Finn, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Finn\");
-
-            CycleImagesNew(Giuliana, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Giuliana\");
-
-            CycleImagesNew(Grant, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Grant\");
-
-            CycleImagesNew(Jasmin, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Jasmin\");
-
-            CycleImagesNew(Miles, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Miles\");
-
-            CycleImagesNew(Noah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Noah\");
-
-            CycleImagesNew(Olivia, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Olivia\");
-
-            CycleImagesNew(Sariah, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Sariah\");
-
-            CycleImagesNew(Tristian, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Tristian\");
-
+                        // Increment the current image index and wrap around to the beginning of the array if it exceeds the array size
+                        currentImageIndexes[image] = (currentImageIndex + 1) % imageFiles.Length;
+                    }
+                }
+            }
         }
         public class HotKey
         {
@@ -245,12 +275,12 @@ namespace School_Project_v1
             var originalTransform = image.LayoutTransform;
 
             // Create a DispatcherTimer object with the specified interval
-            var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(intervalMilliseconds);
+            var Rtimer = new DispatcherTimer();
+            Rtimer.Interval = TimeSpan.FromMilliseconds(intervalMilliseconds);
 
             // Subscribe to the Tick event of the timer and rotate the Image
             bool isRotated = false;
-            timer.Tick += (sender, e) =>
+            Rtimer.Tick += (sender, e) =>
             {
                 if (!isRotated)
                 {
@@ -267,28 +297,9 @@ namespace School_Project_v1
             };
 
             // Start the timer
-            timer.Start();
+            Rtimer.Start();
         }
-        public void CycleImagesNew(Image image, string folderPath)
-        {
-            // Get a list of all image files in the specified folder
-            var imageFiles = Directory.GetFiles(folderPath, "*.png");
 
-                // Check if imageFiles array is not empty before attempting to access an element at the specified index
-                if (imageFiles.Length > 0)
-                {
-                    if (currentImageIndex < imageFiles.Length)
-                    {
-                    // Set the source of the Image control to the next image file
-                    image.Source = new BitmapImage(new Uri(imageFiles[currentImageIndex]));
-
-                    // Increment the current image index and wrap around to the beginning of the array if it exceeds the array size
-                    currentImageIndex = (currentImageIndex + 1) % imageFiles.Length;
-                    }
-                }
-
-            // Start the timer ree e e e e
-        }
 
     }
     public static class Ani
