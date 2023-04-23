@@ -1,0 +1,186 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>School_Project_v1</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pics\Jasmin\JPEG image 10.png" />
+    <None Remove="Pics\Jasmin\JPEG image 11.png" />
+    <None Remove="Pics\Jasmin\JPEG image 14.png" />
+    <None Remove="Pics\Jasmin\JPEG image 18.png" />
+    <None Remove="Pics\Jasmin\JPEG image 19.png" />
+    <None Remove="Pics\Jasmin\JPEG image 2.png" />
+    <None Remove="Pics\Jasmin\JPEG image 22.png" />
+    <None Remove="Pics\Jasmin\JPEG image 28.png" />
+    <None Remove="Pics\Jasmin\JPEG image 5.png" />
+    <None Remove="Pics\Jasmin\JPEG image.png" />
+    <None Remove="Pics\Miles\JPEG image 11.png" />
+    <None Remove="Pics\Miles\JPEG image 15.png" />
+    <None Remove="Pics\Miles\JPEG image 2.png" />
+    <None Remove="Pics\Miles\JPEG image 3.png" />
+    <None Remove="Pics\Miles\JPEG image 7.png" />
+    <None Remove="Pics\Miles\JPEG image 8.png" />
+    <None Remove="Pics\Miles\JPEG image.png" />
+    <None Remove="Pics\Olivia\JPEG image 12.png" />
+    <None Remove="Pics\Olivia\JPEG image 13.png" />
+    <None Remove="Pics\Olivia\JPEG image 17.png" />
+    <None Remove="Pics\Olivia\JPEG image 18.png" />
+    <None Remove="Pics\Olivia\JPEG image 24.png" />
+    <None Remove="Pics\Olivia\JPEG image 25.png" />
+    <None Remove="Pics\Olivia\JPEG image 27.png" />
+    <None Remove="Pics\Olivia\JPEG image 39.png" />
+    <None Remove="Pics\Olivia\JPEG image 40.png" />
+    <None Remove="Pics\Olivia\JPEG image 49.png" />
+    <None Remove="Pics\Olivia\JPEG image 8.png" />
+    <None Remove="Pics\Tristian\Dj project 2.jpg" />
+    <None Remove="Pics\Tristian\Dj project 2.png" />
+    <None Remove="Pics\Tristian\Dj project 3.png" />
+    <None Remove="Pics\Tristian\Dj project 4.png" />
+    <None Remove="Pics\Tristian\Dj project 5.png" />
+    <None Remove="Pics\Tristian\Dj project 6.png" />
+    <None Remove="Pics\Tristian\Dj project 7.png" />
+    <None Remove="Pics\Tristian\Dj project.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="2022-07-27.png" />
+    <Content Remove="Pics\Alex\JPEG image 2.jpeg" />
+    <Content Remove="Pics\Alex\JPEG image 5.png" />
+    <Content Remove="Pics\Alex\JPEG image 6.png" />
+    <Content Remove="Pics\Alex\JPEG image 7.png" />
+    <Content Remove="Pics\Alex\JPEG image 8.png" />
+    <Content Remove="Pics\Alex\JPEG image.png" />
+    <Content Remove="Pics\Amaya\JPEG image 11.png" />
+    <Content Remove="Pics\Amaya\JPEG image 12.png" />
+    <Content Remove="Pics\Amaya\JPEG image 13.png" />
+    <Content Remove="Pics\Amaya\JPEG image 14.png" />
+    <Content Remove="Pics\Amaya\JPEG image 15.png" />
+    <Content Remove="Pics\Amaya\JPEG image 17.png" />
+    <Content Remove="Pics\Amaya\JPEG image 18.png" />
+    <Content Remove="Pics\Amaya\JPEG image 25.png" />
+    <Content Remove="Pics\Amaya\JPEG image 26.png" />
+    <Content Remove="Pics\Amaya\JPEG image 3.png" />
+    <Content Remove="Pics\Amaya\JPEG image 30.png" />
+    <Content Remove="Pics\Amaya\JPEG image 4.png" />
+    <Content Remove="Pics\Amaya\JPEG image 7.png" />
+    <Content Remove="Pics\Amaya\JPEG image.png" />
+    <Content Remove="Pics\Colton\JPEG image 10.jpeg" />
+    <Content Remove="Pics\Colton\JPEG image 12.png" />
+    <Content Remove="Pics\Colton\JPEG image 13.png" />
+    <Content Remove="Pics\Colton\JPEG image 14.png" />
+    <Content Remove="Pics\Colton\JPEG image 15.png" />
+    <Content Remove="Pics\Colton\JPEG image 16.png" />
+    <Content Remove="Pics\Colton\JPEG image 17.png" />
+    <Content Remove="Pics\Colton\JPEG image 18.png" />
+    <Content Remove="Pics\Colton\JPEG image 19.png" />
+    <Content Remove="Pics\Colton\JPEG image 2.png" />
+    <Content Remove="Pics\Colton\JPEG image 20.png" />
+    <Content Remove="Pics\Colton\JPEG image 21.png" />
+    <Content Remove="Pics\Colton\JPEG image 22.png" />
+    <Content Remove="Pics\Colton\JPEG image 28.png" />
+    <Content Remove="Pics\Colton\JPEG image 3.png" />
+    <Content Remove="Pics\Colton\JPEG image 4.png" />
+    <Content Remove="Pics\Colton\JPEG image 5.jpeg" />
+    <Content Remove="Pics\Colton\JPEG image 6.jpeg" />
+    <Content Remove="Pics\Grant\JPEG image 10.png" />
+    <Content Remove="Pics\Grant\JPEG image 16.png" />
+    <Content Remove="Pics\Grant\JPEG image 19.png" />
+    <Content Remove="Pics\Grant\JPEG image 21.png" />
+    <Content Remove="Pics\Grant\JPEG image 27.png" />
+    <Content Remove="Pics\Grant\JPEG image 32.png" />
+    <Content Remove="Pics\Grant\JPEG image 37.png" />
+    <Content Remove="Pics\Grant\JPEG image 4.png" />
+    <Content Remove="Pics\Grant\JPEG image 8.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pics\Colton\JPEG image 17.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pics\Alex\JPEG image 5.png" />
+    <Content Include="Pics\Alex\JPEG image 6.png" />
+    <Content Include="Pics\Alex\JPEG image 7.png" />
+    <Content Include="Pics\Alex\JPEG image 8.png" />
+    <Content Include="Pics\Alex\JPEG image.png" />
+    <Content Include="Pics\Amaya\JPEG image 11.png" />
+    <Content Include="Pics\Amaya\JPEG image 12.png" />
+    <Content Include="Pics\Amaya\JPEG image 13.png" />
+    <Content Include="Pics\Amaya\JPEG image 14.png" />
+    <Content Include="Pics\Amaya\JPEG image 15.png" />
+    <Content Include="Pics\Amaya\JPEG image 17.png" />
+    <Content Include="Pics\Amaya\JPEG image 18.png" />
+    <Content Include="Pics\Amaya\JPEG image 25.png" />
+    <Content Include="Pics\Amaya\JPEG image 26.png" />
+    <Content Include="Pics\Amaya\JPEG image 3.png" />
+    <Content Include="Pics\Amaya\JPEG image 30.png" />
+    <Content Include="Pics\Amaya\JPEG image 4.png" />
+    <Content Include="Pics\Amaya\JPEG image 7.png" />
+    <Content Include="Pics\Amaya\JPEG image.png" />
+    <Content Include="Pics\Colton\JPEG image 12.png" />
+    <Content Include="Pics\Colton\JPEG image 13.png" />
+    <Content Include="Pics\Colton\JPEG image 14.png" />
+    <Content Include="Pics\Colton\JPEG image 15.png" />
+    <Content Include="Pics\Colton\JPEG image 16.png" />
+    <Content Include="Pics\Colton\JPEG image 18.png" />
+    <Content Include="Pics\Colton\JPEG image 19.png" />
+    <Content Include="Pics\Colton\JPEG image 2.png" />
+    <Content Include="Pics\Colton\JPEG image 20.png" />
+    <Content Include="Pics\Colton\JPEG image 21.png" />
+    <Content Include="Pics\Colton\JPEG image 22.png" />
+    <Content Include="Pics\Colton\JPEG image 28.png" />
+    <Content Include="Pics\Colton\JPEG image 3.png" />
+    <Content Include="Pics\Colton\JPEG image 4.png" />
+    <Content Include="Pics\Grant\JPEG image 10.png" />
+    <Content Include="Pics\Grant\JPEG image 16.png" />
+    <Content Include="Pics\Grant\JPEG image 19.png" />
+    <Content Include="Pics\Grant\JPEG image 21.png" />
+    <Content Include="Pics\Grant\JPEG image 27.png" />
+    <Content Include="Pics\Grant\JPEG image 32.png" />
+    <Content Include="Pics\Grant\JPEG image 37.png" />
+    <Content Include="Pics\Grant\JPEG image 4.png" />
+    <Content Include="Pics\Grant\JPEG image 8.png" />
+    <Content Include="Pics\Jasmin\JPEG image 10.png" />
+    <Content Include="Pics\Jasmin\JPEG image 11.png" />
+    <Content Include="Pics\Jasmin\JPEG image 14.png" />
+    <Content Include="Pics\Jasmin\JPEG image 18.png" />
+    <Content Include="Pics\Jasmin\JPEG image 19.png" />
+    <Content Include="Pics\Jasmin\JPEG image 2.png" />
+    <Content Include="Pics\Jasmin\JPEG image 22.png" />
+    <Content Include="Pics\Jasmin\JPEG image 28.png" />
+    <Content Include="Pics\Jasmin\JPEG image 5.png" />
+    <Content Include="Pics\Jasmin\JPEG image.png" />
+    <Content Include="Pics\Miles\JPEG image 11.png" />
+    <Content Include="Pics\Miles\JPEG image 15.png" />
+    <Content Include="Pics\Miles\JPEG image 2.png" />
+    <Content Include="Pics\Miles\JPEG image 3.png" />
+    <Content Include="Pics\Miles\JPEG image 7.png" />
+    <Content Include="Pics\Miles\JPEG image 8.png" />
+    <Content Include="Pics\Miles\JPEG image.png" />
+    <Content Include="Pics\Olivia\JPEG image 12.png" />
+    <Content Include="Pics\Olivia\JPEG image 13.png" />
+    <Content Include="Pics\Olivia\JPEG image 17.png" />
+    <Content Include="Pics\Olivia\JPEG image 18.png" />
+    <Content Include="Pics\Olivia\JPEG image 24.png" />
+    <Content Include="Pics\Olivia\JPEG image 25.png" />
+    <Content Include="Pics\Olivia\JPEG image 27.png" />
+    <Content Include="Pics\Olivia\JPEG image 39.png" />
+    <Content Include="Pics\Olivia\JPEG image 40.png" />
+    <Content Include="Pics\Olivia\JPEG image 49.png" />
+    <Content Include="Pics\Olivia\JPEG image 8.png" />
+    <Content Include="Pics\Tristian\Dj project 2.png" />
+    <Content Include="Pics\Tristian\Dj project 3.png" />
+    <Content Include="Pics\Tristian\Dj project 4.png" />
+    <Content Include="Pics\Tristian\Dj project 5.png" />
+    <Content Include="Pics\Tristian\Dj project 6.png" />
+    <Content Include="Pics\Tristian\Dj project 7.png" />
+    <Content Include="Pics\Tristian\Dj project.png" />
+  </ItemGroup>
+
+</Project>
