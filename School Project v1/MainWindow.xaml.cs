@@ -35,11 +35,16 @@ namespace School_Project_v1
 
         private Dictionary<Image, string> imageFolders = new Dictionary<Image, string>();
         private Dictionary<Image, int> currentImageIndexes = new Dictionary<Image, int>();
+        //Dictionary<System.Windows.Controls.Image, bool> imageRotationStates = new Dictionary<System.Windows.Controls.Image, bool>();
 
 
         public MainWindow()
         {
             InitializeComponent();
+
+            Rtimer = new DispatcherTimer();
+            Rtimer.Tick += Rtimer_Tick;
+            Rtimer.Interval = TimeSpan.FromMilliseconds(500);
 
             Ctimer = new DispatcherTimer();
             Ctimer.Tick += CTimer_Tick;
@@ -52,6 +57,22 @@ namespace School_Project_v1
             Pg2C = new DispatcherTimer();
             Pg2C.Interval=TimeSpan.FromMilliseconds(1100);
             Pg2C.Tick += Pg2C_Tick;
+
+            /*imageRotationStates = new Dictionary<Image, bool>
+        {
+            { Alex, false },
+            { Amaya, false },
+            { Colton, false },
+            { Finn, false },
+            { Giuliana, false },
+            { Grant, false },
+            { Jasmin, false },
+            { Miles, false },
+            { Noah, false },
+            { Olivia, false },
+            { Sariah, false },
+            { Tristian, false }
+        };*/
 
             DoubleAnimation Enter1Ani = new DoubleAnimation();
             Enter1Ani.From = 0.0;
@@ -82,6 +103,7 @@ namespace School_Project_v1
             b.Items.Add(Esc);
             b.Items.Add(Z);
             b.Items.Add(H);
+
 
             // Add image folders and current image indexes for each Image control
             imageFolders.Add(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
@@ -186,18 +208,14 @@ namespace School_Project_v1
                     this.Pg4.Visibility= Visibility.Visible;
                     Ani.Fade(Pg4, 0, 1, 1000);
                     Ctimer.Start();
-                    RotateImage(Alex, 10, 1000); 
-                    RotateImage(Amaya, 10, 1000); 
-                    RotateImage(Colton, 10, 1000); 
-                    RotateImage(Finn, 10, 1000); 
-                    RotateImage(Giuliana, 10, 1000);
-                    RotateImage(Grant, 10, 1000); 
-                    RotateImage(Jasmin, 10, 1000);
-                    RotateImage(Miles, 10, 1000);
-                    RotateImage(Noah, 10, 1000);
-                    RotateImage(Olivia, 10, 1000);
-                    RotateImage(Sariah, 10, 1000);
-                    RotateImage(Tristian, 10, 1000);
+                    //RotateImage(Alex, 10);
+
+
+
+
+
+                    Rtimer.Start();
+
 
                 }
             }
@@ -269,36 +287,69 @@ namespace School_Project_v1
         {
             Enter1StoryBoard.Begin(this, true);
         }
-        public void RotateImage(Image image, double angle, int intervalMilliseconds)
+
+        private void Rtimer_Tick(object sender, EventArgs e)
         {
-            // Save the original image transform
-            var originalTransform = image.LayoutTransform;
 
-            // Create a DispatcherTimer object with the specified interval
-            var Rtimer = new DispatcherTimer();
-            Rtimer.Interval = TimeSpan.FromMilliseconds(intervalMilliseconds);
 
-            // Subscribe to the Tick event of the timer and rotate the Image
-            bool isRotated = false;
-            Rtimer.Tick += (sender, e) =>
+            RotateImage(Alex,10);
+            /*RotateImage(Amaya, 10);
+            RotateImage(Colton, 10);
+            RotateImage(Finn, 10);
+            RotateImage(Giuliana, 10);
+            RotateImage(Grant, 10);
+            RotateImage(Jasmin, 10);
+            RotateImage(Miles, 10);
+            RotateImage(Noah, 10);
+            RotateImage(Olivia, 10);
+            RotateImage(Sariah, 10);
+            RotateImage(Tristian, 10); */
+
+            /*foreach (var image in imageRotationStates.Keys.ToList())
             {
-                if (!isRotated)
-                {
-                    // Rotate the image by the specified angle
-                    image.LayoutTransform = new RotateTransform(angle);
-                    isRotated = true;
-                }
-                else
-                {
-                    // Set the image back to its original rotation
-                    image.LayoutTransform = originalTransform;
-                    isRotated = false;
-                }
-            };
-
-            // Start the timer
-            Rtimer.Start();
+                RotateImage(Alex, 10);
+                RotateImage(Amaya, 10);
+                RotateImage(Colton, 10);
+                RotateImage(Finn, 10);
+                RotateImage(Giuliana, 10);
+                RotateImage(Grant, 10);
+                RotateImage(Jasmin, 10);
+                RotateImage(Miles, 10);
+                RotateImage(Noah, 10);
+                RotateImage(Olivia, 10);
+                RotateImage(Sariah, 10);
+                RotateImage(Tristian, 10); 
+            }*/
         }
+        // Rotate all the images one by one
+
+
+public async void RotateImage(System.Windows.Controls.Image image, double angle)
+{
+
+    // Save the original image transform
+    var originalTransform = image.LayoutTransform;
+
+    // Rotate the image asynchronously
+    await Dispatcher.InvokeAsync(async () =>
+    {
+    bool isRotated = false;
+
+    
+        if (!isRotated)
+        {
+            // Rotate the image by the specified angle
+            image.LayoutTransform = new RotateTransform(angle);
+            isRotated = true;
+        }
+        else
+        {
+            // Set the image back to its original rotation
+            image.LayoutTransform = originalTransform;
+            isRotated = false;
+        }
+    });
+}
 
 
     }
