@@ -35,7 +35,7 @@ namespace School_Project_v1
 
         private Dictionary<Image, string> imageFolders = new Dictionary<Image, string>();
         private Dictionary<Image, int> currentImageIndexes = new Dictionary<Image, int>();
-        //Dictionary<System.Windows.Controls.Image, bool> imageRotationStates = new Dictionary<System.Windows.Controls.Image, bool>();
+        Dictionary<System.Windows.Controls.Image, bool> imageRotationStates = new Dictionary<System.Windows.Controls.Image, bool>();
 
 
         public MainWindow()
@@ -58,7 +58,7 @@ namespace School_Project_v1
             Pg2C.Interval=TimeSpan.FromMilliseconds(1100);
             Pg2C.Tick += Pg2C_Tick;
 
-            /*imageRotationStates = new Dictionary<Image, bool>
+            imageRotationStates = new Dictionary<Image, bool>
         {
             { Alex, false },
             { Amaya, false },
@@ -72,7 +72,7 @@ namespace School_Project_v1
             { Olivia, false },
             { Sariah, false },
             { Tristian, false }
-        };*/
+        };
 
             DoubleAnimation Enter1Ani = new DoubleAnimation();
             Enter1Ani.From = 0.0;
@@ -208,7 +208,19 @@ namespace School_Project_v1
                     this.Pg4.Visibility= Visibility.Visible;
                     Ani.Fade(Pg4, 0, 1, 1000);
                     Ctimer.Start();
-                    //RotateImage(Alex, 10);
+                    /*RotateImage(Alex, 10);
+                    RotateImage(Alex, 10);
+                    RotateImage(Amaya, 10);
+                    RotateImage(Colton, 10);
+                    RotateImage(Finn, 10);
+                    RotateImage(Giuliana, 10);
+                    RotateImage(Grant, 10);
+                    RotateImage(Jasmin, 10);
+                    RotateImage(Miles, 10);
+                    RotateImage(Noah, 10);
+                    RotateImage(Olivia, 10);
+                    RotateImage(Sariah, 10);
+                    RotateImage(Tristian, 10);*/
 
 
 
@@ -292,7 +304,7 @@ namespace School_Project_v1
         {
 
 
-            RotateImage(Alex,10);
+            //RotateImage(Alex,10);
             /*RotateImage(Amaya, 10);
             RotateImage(Colton, 10);
             RotateImage(Finn, 10);
@@ -305,10 +317,10 @@ namespace School_Project_v1
             RotateImage(Sariah, 10);
             RotateImage(Tristian, 10); */
 
-            /*foreach (var image in imageRotationStates.Keys.ToList())
+            foreach (var image in imageRotationStates.Keys.ToList())
             {
                 RotateImage(Alex, 10);
-                RotateImage(Amaya, 10);
+                /*RotateImage(Amaya, 10);
                 RotateImage(Colton, 10);
                 RotateImage(Finn, 10);
                 RotateImage(Giuliana, 10);
@@ -318,42 +330,44 @@ namespace School_Project_v1
                 RotateImage(Noah, 10);
                 RotateImage(Olivia, 10);
                 RotateImage(Sariah, 10);
-                RotateImage(Tristian, 10); 
-            }*/
+                RotateImage(Tristian, 10); */
+            }
         }
         // Rotate all the images one by one
 
 
-public async void RotateImage(System.Windows.Controls.Image image, double angle)
-{
-
-    // Save the original image transform
-    var originalTransform = image.LayoutTransform;
-
-    // Rotate the image asynchronously
-    await Dispatcher.InvokeAsync(async () =>
-    {
-    bool isRotated = false;
-
-    
-        if (!isRotated)
+        public async Task RotateImage(Image image, double angle)
         {
-            // Rotate the image by the specified angle
-            image.LayoutTransform = new RotateTransform(angle);
-            isRotated = true;
+
+            if (image == null)
+            {
+                throw new ArgumentNullException(nameof(image));
+            }
+            // Save the original image transform
+            var originalTransform = image?.LayoutTransform; // Null reference check
+
+            // Rotate the image asynchronously
+            await Dispatcher.BeginInvoke(new Action(() =>
+            {
+
+                if (!imageRotationStates[image])
+                {
+                    // Rotate the image by the specified angle
+                    image.LayoutTransform = new RotateTransform(angle);
+                    imageRotationStates[image] = true;
+                }
+                else
+                {
+                    // Set the image back to its original rotation
+                    image.LayoutTransform = originalTransform;
+                    imageRotationStates[image] = false;
+                }
+            }));
         }
-        else
-        {
-            // Set the image back to its original rotation
-            image.LayoutTransform = originalTransform;
-            isRotated = false;
-        }
-    });
-}
 
 
     }
-    public static class Ani
+public static class Ani
     {
         public static void Fade(UIElement element, double from, double to, int durationMilliseconds)
         {
