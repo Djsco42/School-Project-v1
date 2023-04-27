@@ -26,6 +26,7 @@ namespace School_Project_v1
     public partial class MainWindow : Window
     {
         int i = 0;
+        private bool IsR = false; 
         private int Pg= 0;
         private Storyboard Enter1StoryBoard;
         private DispatcherTimer T;
@@ -44,7 +45,7 @@ namespace School_Project_v1
 
             Rtimer = new DispatcherTimer();
             Rtimer.Tick += Rtimer_Tick;
-            Rtimer.Interval = TimeSpan.FromMilliseconds(500);
+            Rtimer.Interval = TimeSpan.FromMilliseconds(1000);
 
             Ctimer = new DispatcherTimer();
             Ctimer.Tick += CTimer_Tick;
@@ -208,24 +209,6 @@ namespace School_Project_v1
                     this.Pg4.Visibility= Visibility.Visible;
                     Ani.Fade(Pg4, 0, 1, 1000);
                     Ctimer.Start();
-                    /*RotateImage(Alex, 10);
-                    RotateImage(Alex, 10);
-                    RotateImage(Amaya, 10);
-                    RotateImage(Colton, 10);
-                    RotateImage(Finn, 10);
-                    RotateImage(Giuliana, 10);
-                    RotateImage(Grant, 10);
-                    RotateImage(Jasmin, 10);
-                    RotateImage(Miles, 10);
-                    RotateImage(Noah, 10);
-                    RotateImage(Olivia, 10);
-                    RotateImage(Sariah, 10);
-                    RotateImage(Tristian, 10);*/
-
-
-
-
-
                     Rtimer.Start();
 
 
@@ -302,69 +285,42 @@ namespace School_Project_v1
 
         private void Rtimer_Tick(object sender, EventArgs e)
         {
-
-
-            //RotateImage(Alex,10);
-            /*RotateImage(Amaya, 10);
-            RotateImage(Colton, 10);
-            RotateImage(Finn, 10);
-            RotateImage(Giuliana, 10);
-            RotateImage(Grant, 10);
-            RotateImage(Jasmin, 10);
-            RotateImage(Miles, 10);
-            RotateImage(Noah, 10);
-            RotateImage(Olivia, 10);
-            RotateImage(Sariah, 10);
-            RotateImage(Tristian, 10); */
-
-            foreach (var image in imageRotationStates.Keys.ToList())
+            if (IsR)
             {
-                RotateImage(Alex, 10);
-                /*RotateImage(Amaya, 10);
-                RotateImage(Colton, 10);
-                RotateImage(Finn, 10);
-                RotateImage(Giuliana, 10);
-                RotateImage(Grant, 10);
-                RotateImage(Jasmin, 10);
-                RotateImage(Miles, 10);
-                RotateImage(Noah, 10);
-                RotateImage(Olivia, 10);
-                RotateImage(Sariah, 10);
-                RotateImage(Tristian, 10); */
+
+                Alex.LayoutTransform = new RotateTransform(10);
+                Amaya.LayoutTransform = new RotateTransform(10);
+                Colton.LayoutTransform = new RotateTransform(10);
+                Finn.LayoutTransform = new RotateTransform(10);
+                Giuliana.LayoutTransform = new RotateTransform(10);
+                Grant.LayoutTransform = new RotateTransform(10);
+                Jasmin.LayoutTransform = new RotateTransform(10);
+                Miles.LayoutTransform = new RotateTransform(10);
+                Noah.LayoutTransform = new RotateTransform(10);
+                Olivia.LayoutTransform = new RotateTransform(10);
+                Sariah.LayoutTransform = new RotateTransform(10);
+                Tristian.LayoutTransform = new RotateTransform(10);
+                IsR = false;
+
+            }
+
+            else
+            {
+                Alex.LayoutTransform = new RotateTransform(100);
+                Amaya.LayoutTransform = new RotateTransform(100);
+                Colton.LayoutTransform = new RotateTransform(100);
+                Finn.LayoutTransform = new RotateTransform(100);
+                Giuliana.LayoutTransform = new RotateTransform(100);
+                Grant.LayoutTransform = new RotateTransform(100);
+                Jasmin.LayoutTransform = new RotateTransform(100);
+                Miles.LayoutTransform = new RotateTransform(100);
+                Noah.LayoutTransform = new RotateTransform(100);
+                Olivia.LayoutTransform = new RotateTransform(100);
+                Sariah.LayoutTransform = new RotateTransform(100);
+                Tristian.LayoutTransform = new RotateTransform(100);
+                IsR = true;
             }
         }
-        // Rotate all the images one by one
-
-
-        public async Task RotateImage(Image image, double angle)
-        {
-
-            if (image == null)
-            {
-                throw new ArgumentNullException(nameof(image));
-            }
-            // Save the original image transform
-            var originalTransform = image?.LayoutTransform; // Null reference check
-
-            // Rotate the image asynchronously
-            await Dispatcher.BeginInvoke(new Action(() =>
-            {
-
-                if (!imageRotationStates[image])
-                {
-                    // Rotate the image by the specified angle
-                    image.LayoutTransform = new RotateTransform(angle);
-                    imageRotationStates[image] = true;
-                }
-                else
-                {
-                    // Set the image back to its original rotation
-                    image.LayoutTransform = originalTransform;
-                    imageRotationStates[image] = false;
-                }
-            }));
-        }
-
 
     }
 public static class Ani
