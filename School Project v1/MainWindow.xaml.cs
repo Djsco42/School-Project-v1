@@ -36,7 +36,6 @@ namespace School_Project_v1
 
         private Dictionary<Image, string> imageFolders = new Dictionary<Image, string>();
         private Dictionary<Image, int> currentImageIndexes = new Dictionary<Image, int>();
-        Dictionary<System.Windows.Controls.Image, bool> imageRotationStates = new Dictionary<System.Windows.Controls.Image, bool>();
 
 
         public MainWindow()
@@ -59,21 +58,7 @@ namespace School_Project_v1
             Pg2C.Interval=TimeSpan.FromMilliseconds(1100);
             Pg2C.Tick += Pg2C_Tick;
 
-            imageRotationStates = new Dictionary<Image, bool>
-        {
-            { Alex, false },
-            { Amaya, false },
-            { Colton, false },
-            { Finn, false },
-            { Giuliana, false },
-            { Grant, false },
-            { Jasmin, false },
-            { Miles, false },
-            { Noah, false },
-            { Olivia, false },
-            { Sariah, false },
-            { Tristian, false }
-        };
+            
 
             DoubleAnimation Enter1Ani = new DoubleAnimation();
             Enter1Ani.From = 0.0;
@@ -288,36 +273,36 @@ namespace School_Project_v1
             if (IsR)
             {
 
-                Alex.LayoutTransform = new RotateTransform(10);
-                Amaya.LayoutTransform = new RotateTransform(10);
-                Colton.LayoutTransform = new RotateTransform(10);
-                Finn.LayoutTransform = new RotateTransform(10);
-                Giuliana.LayoutTransform = new RotateTransform(10);
-                Grant.LayoutTransform = new RotateTransform(10);
-                Jasmin.LayoutTransform = new RotateTransform(10);
+                //Alex.LayoutTransform = new RotateTransform(10);
+                //Amaya.LayoutTransform = new RotateTransform(10);
+                //Colton.LayoutTransform = new RotateTransform(10);
+                //Finn.LayoutTransform = new RotateTransform(10);
+                //Giuliana.LayoutTransform = new RotateTransform(10);
+                //Grant.LayoutTransform = new RotateTransform(10);
+                Jasmin.LayoutTransform = new RotateTransform(100);
                 Miles.LayoutTransform = new RotateTransform(10);
-                Noah.LayoutTransform = new RotateTransform(10);
-                Olivia.LayoutTransform = new RotateTransform(10);
-                Sariah.LayoutTransform = new RotateTransform(10);
-                Tristian.LayoutTransform = new RotateTransform(10);
+                //Noah.LayoutTransform = new RotateTransform(10);
+                //Olivia.LayoutTransform = new RotateTransform(10);
+                //Sariah.LayoutTransform = new RotateTransform(10);
+                //Tristian.LayoutTransform = new RotateTransform(10);
                 IsR = false;
 
             }
 
             else
             {
-                Alex.LayoutTransform = new RotateTransform(100);
-                Amaya.LayoutTransform = new RotateTransform(100);
-                Colton.LayoutTransform = new RotateTransform(100);
-                Finn.LayoutTransform = new RotateTransform(100);
-                Giuliana.LayoutTransform = new RotateTransform(100);
-                Grant.LayoutTransform = new RotateTransform(100);
-                Jasmin.LayoutTransform = new RotateTransform(100);
-                Miles.LayoutTransform = new RotateTransform(100);
-                Noah.LayoutTransform = new RotateTransform(100);
-                Olivia.LayoutTransform = new RotateTransform(100);
-                Sariah.LayoutTransform = new RotateTransform(100);
-                Tristian.LayoutTransform = new RotateTransform(100);
+                //Alex.LayoutTransform = new RotateTransform(100);
+               // Amaya.LayoutTransform = new RotateTransform(100);
+                //Colton.LayoutTransform = new RotateTransform(100);
+                //Finn.LayoutTransform = new RotateTransform(100);
+                //Giuliana.LayoutTransform = new RotateTransform(100);
+                //Grant.LayoutTransform = new RotateTransform(100);
+                Jasmin.LayoutTransform = new RotateTransform(-10);
+                Miles.LayoutTransform = new RotateTransform(-5);
+                //Noah.LayoutTransform = new RotateTransform(100);
+                //Olivia.LayoutTransform = new RotateTransform(100);
+                //Sariah.LayoutTransform = new RotateTransform(100);
+                //Tristian.LayoutTransform = new RotateTransform(100);
                 IsR = true;
             }
         }
