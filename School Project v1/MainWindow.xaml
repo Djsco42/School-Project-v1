@@ -117,7 +117,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Jasmin" Source="Pics/Jasmin/JPEG image 10.png" HorizontalAlignment="Left" Height="131" Margin="217,182,0,0" VerticalAlignment="Top" Width="179" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Image x:Name="Jasmin" Source="Pics/Jasmin/JPEG image 10.png" HorizontalAlignment="Left" Height="216" Margin="237,149,0,0" VerticalAlignment="Top" Width="179" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>

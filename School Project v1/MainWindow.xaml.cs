@@ -253,6 +253,12 @@ namespace School_Project_v1
 
                         // Increment the current image index and wrap around to the beginning of the array if it exceeds the array size
                         currentImageIndexes[image] = (currentImageIndex + 1) % imageFiles.Length;
+
+                       // if (image == Jasmin && currentImageIndex == 2)
+                        //{
+                        //    Jasmin.Height = 160;
+                        //    Jasmin.Width = 190;
+                        //}
                     }
                 }
             }
@@ -273,36 +279,36 @@ namespace School_Project_v1
             if (IsR)
             {
 
-                //Alex.LayoutTransform = new RotateTransform(10);
-                //Amaya.LayoutTransform = new RotateTransform(10);
-                //Colton.LayoutTransform = new RotateTransform(10);
-                //Finn.LayoutTransform = new RotateTransform(10);
-                //Giuliana.LayoutTransform = new RotateTransform(10);
-                //Grant.LayoutTransform = new RotateTransform(10);
-                Jasmin.LayoutTransform = new RotateTransform(100);
+                Alex.LayoutTransform = new RotateTransform(10);
+                Amaya.LayoutTransform = new RotateTransform(10);
+                Colton.LayoutTransform = new RotateTransform(10);
+                Finn.LayoutTransform = new RotateTransform(10);
+                Giuliana.LayoutTransform = new RotateTransform(10);
+                Grant.LayoutTransform = new RotateTransform(10);
+                Jasmin.LayoutTransform = new RotateTransform(-10);
                 Miles.LayoutTransform = new RotateTransform(10);
-                //Noah.LayoutTransform = new RotateTransform(10);
-                //Olivia.LayoutTransform = new RotateTransform(10);
-                //Sariah.LayoutTransform = new RotateTransform(10);
-                //Tristian.LayoutTransform = new RotateTransform(10);
+                Noah.LayoutTransform = new RotateTransform(10);
+                Olivia.LayoutTransform = new RotateTransform(10);
+                Sariah.LayoutTransform = new RotateTransform(-10);
+                Tristian.LayoutTransform = new RotateTransform(10);
                 IsR = false;
 
             }
 
             else
             {
-                //Alex.LayoutTransform = new RotateTransform(100);
-               // Amaya.LayoutTransform = new RotateTransform(100);
-                //Colton.LayoutTransform = new RotateTransform(100);
-                //Finn.LayoutTransform = new RotateTransform(100);
-                //Giuliana.LayoutTransform = new RotateTransform(100);
-                //Grant.LayoutTransform = new RotateTransform(100);
-                Jasmin.LayoutTransform = new RotateTransform(-10);
+                Alex.LayoutTransform = new RotateTransform(-5);
+                Amaya.LayoutTransform = new RotateTransform(-5);
+                Colton.LayoutTransform = new RotateTransform(-5);
+                Finn.LayoutTransform = new RotateTransform(-5);
+                Giuliana.LayoutTransform = new RotateTransform(-5);
+                Grant.LayoutTransform = new RotateTransform(-5);
+                Jasmin.LayoutTransform = new RotateTransform(5);
                 Miles.LayoutTransform = new RotateTransform(-5);
-                //Noah.LayoutTransform = new RotateTransform(100);
-                //Olivia.LayoutTransform = new RotateTransform(100);
-                //Sariah.LayoutTransform = new RotateTransform(100);
-                //Tristian.LayoutTransform = new RotateTransform(100);
+                Noah.LayoutTransform = new RotateTransform(-5);
+                Olivia.LayoutTransform = new RotateTransform(-5);
+                Sariah.LayoutTransform = new RotateTransform(5);
+                Tristian.LayoutTransform = new RotateTransform(-5);
                 IsR = true;
             }
         }
