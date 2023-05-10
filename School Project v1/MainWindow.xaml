@@ -72,8 +72,7 @@
 
             <Label Content="THE REASON TO MAKE THIS APPLICATION" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="White" Height="52" Width="484" FontSize="25"/>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="2177,504,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Grid x:Name="Pg4" Visibility="Visible">
+        <Grid x:Name="Pg4" Visibility="Collapsed">
             <Grid.Background>
                 <ImageBrush ImageSource="C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Background\JPEG image 666 3.png"/>
             </Grid.Background>
@@ -197,13 +196,11 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-
-            <Label x:Name="helloA" Visibility="Collapsed" Content="Hello" Margin="20,20,20,20" Foreground="White" FontSize="25" FontWeight="Bold"/>
-
-
-
         </Grid>
-
+        <Grid x:Name="Pg5" Visibility="Collapsed" Background="Black">
+            <Image x:Name="BL" Margin="443,60,443,60" />
+            
+        </Grid>
     </Grid>
 
 

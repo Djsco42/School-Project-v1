@@ -33,14 +33,21 @@ namespace School_Project_v1
         private DispatcherTimer Pg2C;
         private DispatcherTimer Ctimer;
         private DispatcherTimer Rtimer;
+        private DispatcherTimer Ptimer;
 
         private Dictionary<Image, string> imageFolders = new Dictionary<Image, string>();
         private Dictionary<Image, int> currentImageIndexes = new Dictionary<Image, int>();
+
+        private string[] BimageFiles;
+        private int BcurrentIndex;
 
 
         public MainWindow()
         {
             InitializeComponent();
+
+            BcurrentIndex = 0;
+            BimageFiles = Directory.GetFiles(@"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Bloopers\", "*.jpg");
 
             Rtimer = new DispatcherTimer();
             Rtimer.Tick += Rtimer_Tick;
@@ -57,6 +64,10 @@ namespace School_Project_v1
             Pg2C = new DispatcherTimer();
             Pg2C.Interval=TimeSpan.FromMilliseconds(1100);
             Pg2C.Tick += Pg2C_Tick;
+
+            Ptimer = new DispatcherTimer();
+            Ptimer.Tick += Ptimer_Tick;
+            Ptimer.Interval = TimeSpan.FromMilliseconds(1000);
 
             
 
@@ -92,6 +103,9 @@ namespace School_Project_v1
 
 
             // Add image folders and current image indexes for each Image control
+            imageFolders.Add(BL, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Bloopers\");
+            currentImageIndexes.Add(BL, 0);
+
             imageFolders.Add(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
             currentImageIndexes.Add(Alex, 0);
 
@@ -166,10 +180,10 @@ namespace School_Project_v1
                 if (Pg == 1)
                 {
 
-                    this.Pg1.Visibility = Visibility.Collapsed;
-                    this.Pg2.Visibility = Visibility.Visible;
+                    Pg1.Visibility = Visibility.Collapsed;
+                    Pg2.Visibility = Visibility.Visible;
                     Enter1StoryBoard.Stop();
-                    this.Enter1.Visibility= Visibility.Collapsed;
+                    Enter1.Visibility= Visibility.Collapsed;
 
                     T.Start();
 
@@ -179,9 +193,9 @@ namespace School_Project_v1
                 if (Pg == 2)
                 {
                     Enter1StoryBoard.Stop();
-                    this.Enter1.Visibility = Visibility.Collapsed;
-                    this.Pg2.Visibility= Visibility.Collapsed;
-                    this.Pg3.Visibility= Visibility.Visible;
+                    Enter1.Visibility = Visibility.Collapsed;
+                    Pg2.Visibility= Visibility.Collapsed;
+                    Pg3.Visibility= Visibility.Visible;
                     T.Start();
 
                     Ani.Fade(Pg3, 0, 1, 3000);
@@ -189,23 +203,33 @@ namespace School_Project_v1
                 if(Pg == 3)
                 {
                     Enter1StoryBoard.Stop();
-                    this.Enter1.Visibility = Visibility.Collapsed;
-                    this.Pg3.Visibility = Visibility.Collapsed;
-                    this.Pg4.Visibility= Visibility.Visible;
+                    Enter1.Visibility = Visibility.Collapsed;
+                    Pg3.Visibility = Visibility.Collapsed;
+                    Pg4.Visibility= Visibility.Visible;
                     Ani.Fade(Pg4, 0, 1, 1000);
                     Ctimer.Start();
                     Rtimer.Start();
 
 
                 }
+
+                if(Pg == 4)
+                {
+
+                    Ctimer.Stop();
+                    Rtimer.Stop();
+                    Ani.Fade(Pg4, 1, 0, 1000);
+                    Enter1.Visibility = Visibility.Collapsed;
+                    Ptimer.Start();
+                }
             }
             if(e.Key == Key.H) 
             {
                 if (Pg2.Visibility == Visibility.Collapsed)
                 {
-                    this.Pg2.Visibility = Visibility.Visible;
+                    Pg2.Visibility = Visibility.Visible;
                     Ani.Fade(Pg2, 0, 1, 900);
-                    this.Pg2.Margin = new Thickness(0, 0, 0, 0);
+                    Pg2.Margin = new Thickness(0, 0, 0, 0);
                     a.Text = "APPLICATION HOTKEYS";
                 }
                 else
@@ -222,15 +246,47 @@ namespace School_Project_v1
         }
         private void Pg2C_Tick(object sender, EventArgs e)
         {
-            this.Pg2.Visibility = Visibility.Collapsed;
+            Pg2.Visibility = Visibility.Collapsed;
             Pg2C.Stop();
         }
         private void T_Tick(object sender, EventArgs e)
         {
-            this.Enter1.Visibility= Visibility.Visible;
+            Enter1.Visibility= Visibility.Visible;
             Enter1StoryBoard.Begin(this);
             T.Stop();
         }
+
+        private void Ptimer_Tick(object sender, EventArgs e)
+        {
+            if(Pg4.Visibility == Visibility.Visible) { 
+            Pg4.Visibility = Visibility.Collapsed;
+            }
+
+            if (BimageFiles.Length > 0)
+            {
+                if (BcurrentIndex >= BimageFiles.Length)
+                {
+                    BcurrentIndex = 0; // Reset index to cycle back to the first image
+                }
+
+                string BimagePath = BimageFiles[BcurrentIndex];
+                LoadImage(BimagePath);
+                BcurrentIndex++;
+            }
+        }
+
+        private void LoadImage(string BimagePath)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(BimagePath);
+            bitmap.EndInit();
+            BL.Source = bitmap;
+        }
+    
+
+
+
 
         private void CTimer_Tick(object sender, EventArgs e)
         {
