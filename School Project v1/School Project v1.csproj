@@ -120,26 +120,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Pics\Bloopers\IMG-0616.jpg" />
-    <Content Include="Pics\Bloopers\IMG-0617.jpg" />
-    <Content Include="Pics\Bloopers\IMG-0628.jpg" />
-    <Content Include="Pics\Bloopers\IMG-0634.jpg" />
-    <Content Include="Pics\Bloopers\IMG-0638.jpg" />
-    <Content Include="Pics\Bloopers\JPEG image 11.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 12.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 17.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 27.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 30.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 32.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 42.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 43.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 44.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 45.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 46.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 47.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 7.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 70.jpeg" />
-    <Content Include="Pics\Bloopers\JPEG image 9.jpeg" />
+    <Content Include="Pics\Bloopers\IMG-0617.png" />
+    <Content Include="Pics\Bloopers\IMG-0628.png" />
+    <Content Include="Pics\Bloopers\IMG-0634.png" />
+    <Content Include="Pics\Bloopers\IMG-0638.png" />
+    <Content Include="Pics\Bloopers\JPEG image 11.png" />
+    <Content Include="Pics\Bloopers\JPEG image 17.png" />
+    <Content Include="Pics\Bloopers\JPEG image 27.png" />
+    <Content Include="Pics\Bloopers\JPEG image 30.png" />
+    <Content Include="Pics\Bloopers\JPEG image 32.png" />
+    <Content Include="Pics\Bloopers\JPEG image 42.png" />
+    <Content Include="Pics\Bloopers\JPEG image 43.png" />
+    <Content Include="Pics\Bloopers\JPEG image 44.png" />
+    <Content Include="Pics\Bloopers\JPEG image 45.png" />
+    <Content Include="Pics\Bloopers\JPEG image 46.png" />
+    <Content Include="Pics\Bloopers\JPEG image 47.png" />
+    <Content Include="Pics\Bloopers\JPEG image 7.png" />
+    <Content Include="Pics\Bloopers\JPEG image 70.png" />
+    <Content Include="Pics\Bloopers\JPEG image 9.png" />
     <Content Include="Pics\Colton\JPEG image 17.png" />
   </ItemGroup>
 

@@ -197,9 +197,9 @@
                 </Image.RenderTransform>
             </Image>
         </Grid>
-        <Grid x:Name="Pg5" Visibility="Collapsed" Background="Black">
-            <Image x:Name="BL" Margin="443,60,443,60" />
-            
+        <Grid x:Name="Pg5" Visibility="Collapsed" Background="Black" Opacity="00">
+            <Image x:Name="BL" Height="464" Width="608" Source="Pics/Bloopers/JPEG image 11.png" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
         </Grid>
     </Grid>
 

@@ -47,11 +47,11 @@ namespace School_Project_v1
             InitializeComponent();
 
             BcurrentIndex = 0;
-            BimageFiles = Directory.GetFiles(@"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Bloopers\", "*.jpg");
+            BimageFiles = Directory.GetFiles(@"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Bloopers\", "*.png");
 
             Rtimer = new DispatcherTimer();
             Rtimer.Tick += Rtimer_Tick;
-            Rtimer.Interval = TimeSpan.FromMilliseconds(1000);
+            Rtimer.Interval = TimeSpan.FromMilliseconds(250);
 
             Ctimer = new DispatcherTimer();
             Ctimer.Tick += CTimer_Tick;
@@ -260,6 +260,8 @@ namespace School_Project_v1
         {
             if(Pg4.Visibility == Visibility.Visible) { 
             Pg4.Visibility = Visibility.Collapsed;
+                Pg5.Visibility = Visibility.Visible;
+                Ani.Fade(Pg5, 0, 1, 1000);
             }
 
             if (BimageFiles.Length > 0)
