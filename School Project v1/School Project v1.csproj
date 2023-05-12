@@ -17,10 +17,15 @@
     <None Remove="Pics\Bloopers\IMG-0638.jpg" />
     <None Remove="Pics\Bloopers\JPEG image 11.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 12.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 13.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 17.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 18.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 19.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 27.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 3.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 30.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 32.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 4.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 42.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 43.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 44.jpeg" />
@@ -30,6 +35,8 @@
     <None Remove="Pics\Bloopers\JPEG image 7.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 70.jpeg" />
     <None Remove="Pics\Bloopers\JPEG image 9.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image 90.jpeg" />
+    <None Remove="Pics\Bloopers\JPEG image.jpeg" />
     <None Remove="Pics\Jasmin\JPEG image 10.png" />
     <None Remove="Pics\Jasmin\JPEG image 11.png" />
     <None Remove="Pics\Jasmin\JPEG image 14.png" />
@@ -125,10 +132,15 @@
     <Content Include="Pics\Bloopers\IMG-0634.png" />
     <Content Include="Pics\Bloopers\IMG-0638.png" />
     <Content Include="Pics\Bloopers\JPEG image 11.png" />
+    <Content Include="Pics\Bloopers\JPEG image 13.png" />
     <Content Include="Pics\Bloopers\JPEG image 17.png" />
+    <Content Include="Pics\Bloopers\JPEG image 18.png" />
+    <Content Include="Pics\Bloopers\JPEG image 19.png" />
     <Content Include="Pics\Bloopers\JPEG image 27.png" />
+    <Content Include="Pics\Bloopers\JPEG image 3.png" />
     <Content Include="Pics\Bloopers\JPEG image 30.png" />
     <Content Include="Pics\Bloopers\JPEG image 32.png" />
+    <Content Include="Pics\Bloopers\JPEG image 4.png" />
     <Content Include="Pics\Bloopers\JPEG image 42.png" />
     <Content Include="Pics\Bloopers\JPEG image 43.png" />
     <Content Include="Pics\Bloopers\JPEG image 44.png" />
@@ -138,6 +150,8 @@
     <Content Include="Pics\Bloopers\JPEG image 7.png" />
     <Content Include="Pics\Bloopers\JPEG image 70.png" />
     <Content Include="Pics\Bloopers\JPEG image 9.png" />
+    <Content Include="Pics\Bloopers\JPEG image 90.png" />
+    <Content Include="Pics\Bloopers\JPEG image.png" />
     <Content Include="Pics\Colton\JPEG image 17.png" />
   </ItemGroup>
 

@@ -51,7 +51,7 @@ namespace School_Project_v1
 
             Rtimer = new DispatcherTimer();
             Rtimer.Tick += Rtimer_Tick;
-            Rtimer.Interval = TimeSpan.FromMilliseconds(250);
+            Rtimer.Interval = TimeSpan.FromMilliseconds(1000);
 
             Ctimer = new DispatcherTimer();
             Ctimer.Tick += CTimer_Tick;
@@ -67,7 +67,7 @@ namespace School_Project_v1
 
             Ptimer = new DispatcherTimer();
             Ptimer.Tick += Ptimer_Tick;
-            Ptimer.Interval = TimeSpan.FromMilliseconds(1000);
+            Ptimer.Interval = TimeSpan.FromMilliseconds(1200);
 
             
 
