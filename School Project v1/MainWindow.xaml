@@ -72,7 +72,7 @@
 
             <Label Content="THE REASON TO MAKE THIS APPLICATION" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="White" Height="52" Width="484" FontSize="25"/>
         </Grid>
-        <Grid x:Name="Pg4" Visibility="Collapsed">
+        <Grid x:Name="Pg4" Visibility="Visible">
             <Grid.Background>
                 <ImageBrush ImageSource="C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Background\JPEG image 666 3.png"/>
             </Grid.Background>
@@ -176,7 +176,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Sariah" Source="Pics/Sariah/JPEG image 2.png" HorizontalAlignment="Left" Height="167" Margin="411,360,0,0" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Image x:Name="Sariah" Source="Pics/Sariah/JPEG image 2.png" HorizontalAlignment="Left" Height="167" Margin="430,360,0,0" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -192,6 +192,15 @@
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Amalia" Source="Pics/Amalia/JPEG image 10.png" HorizontalAlignment="Left" Height="159" Margin="220,298,0,0" VerticalAlignment="Top" Width="234" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <RotateTransform Angle="-5"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>

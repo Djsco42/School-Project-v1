@@ -103,8 +103,8 @@ namespace School_Project_v1
 
 
             // Add image folders and current image indexes for each Image control
-            imageFolders.Add(BL, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Bloopers\");
-            currentImageIndexes.Add(BL, 0);
+            imageFolders.Add(Amalia, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Amalia\");
+            currentImageIndexes.Add(Amalia, 0);
 
             imageFolders.Add(Alex, @"C:\Users\lills\OneDrive\Desktop\School Project v1\School Project v1\Pics\Alex\");
             currentImageIndexes.Add(Alex, 0);
@@ -349,6 +349,8 @@ namespace School_Project_v1
                 Olivia.LayoutTransform = new RotateTransform(10);
                 Sariah.LayoutTransform = new RotateTransform(-10);
                 Tristian.LayoutTransform = new RotateTransform(10);
+                Amalia.LayoutTransform = new RotateTransform(-10);
+
                 IsR = false;
 
             }
@@ -367,6 +369,8 @@ namespace School_Project_v1
                 Olivia.LayoutTransform = new RotateTransform(-5);
                 Sariah.LayoutTransform = new RotateTransform(5);
                 Tristian.LayoutTransform = new RotateTransform(-5);
+                Amalia.LayoutTransform = new RotateTransform(5);
+
                 IsR = true;
             }
         }
